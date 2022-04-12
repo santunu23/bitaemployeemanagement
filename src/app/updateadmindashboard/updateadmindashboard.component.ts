@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-updateadmindashboard',
@@ -23,7 +24,8 @@ export class UpdateadmindashboardComponent implements OnInit {
   
   constructor(
     private service:FirebaseService,
-    private router:Router) { }
+    private router:Router,
+    private updateadmindashboarddata:CookieService) { }
 
   ngOnInit(): void {
    let PM=0;
@@ -92,7 +94,17 @@ export class UpdateadmindashboardComponent implements OnInit {
      
   } 
   checkdetails(dname){
-    this.router.navigateByUrl("updatedashboardforadmin",{state:dname})
-    
+    if(this.updateadmindashboarddata.check("employeedesignationdashboard")){
+      this.updateadmindashboarddata.delete("employeedesignationdashboard");
+      this.updateadmindashboarddata.set("employeedesignationdashboard",dname); 
+      this.router.navigateByUrl("updatedashboarddetails");
+    }else{
+      this.updateadmindashboarddata.set("employeedesignationdashboard",dname);
+      this.router.navigateByUrl("updatedashboarddetails");
+    }
   }
+  // checkdetails(dname){
+  //   this.router.navigateByUrl("updatedashboardforadmin",{state:dname})
+    
+  // }
 }

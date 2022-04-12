@@ -76,7 +76,7 @@ export class OshhcdashboardComponent implements OnInit {
         this.router.navigateByUrl("deleteoshrhcdashboard");
     }
     details(item){
-   this.firebaseService.getselecteduserdataoshrhc(item.randomId).subscribe(data=>{
+        this.firebaseService.getselecteduserdataoshrhc(item.randomId).subscribe(data=>{
          this.list = data.map(e => {
            return {
              id: e.payload.doc['id'],

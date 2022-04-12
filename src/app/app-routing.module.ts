@@ -1,3 +1,4 @@
+import { UpdateoshrhcuserdetailsComponent } from './updateoshrhcuserdetails/updateoshrhcuserdetails.component';
 import { UpdatedashboarddetailsComponent } from './updatedashboarddetails/updatedashboarddetails.component';
 import { UpdateadmindashboardComponent } from './updateadmindashboard/updateadmindashboard.component';
 import { SuccessaddoshrchcmemberComponent } from './components/successaddoshrchcmember/successaddoshrchcmember.component';
@@ -33,7 +34,8 @@ const routes: Routes = [
   {path:'deletedone',component:DeletedoneComponent},
   {path:'successaddmemberoshrhc',component:SuccessaddoshrchcmemberComponent},
   {path:'updatedashboardforadmin',component:UpdateadmindashboardComponent},
-  {path:'updatedashboarddetails',component:UpdatedashboarddetailsComponent}
+  {path:'updatedashboarddetails',component:UpdatedashboarddetailsComponent},
+  {path:'detailsoftheoshrhcdetails',component:UpdateoshrhcuserdetailsComponent}
 
 ];
 

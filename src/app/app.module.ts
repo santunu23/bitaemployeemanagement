@@ -31,6 +31,7 @@ import { OshhceditdashboardComponent } from './components/oshhceditdashboard/osh
 import { SuccessaddoshrchcmemberComponent } from './components/successaddoshrchcmember/successaddoshrchcmember.component';
 import { UpdateadmindashboardComponent } from './updateadmindashboard/updateadmindashboard.component';
 import { UpdatedashboarddetailsComponent } from './updatedashboarddetails/updatedashboarddetails.component';
+import { UpdateoshrhcuserdetailsComponent } from './updateoshrhcuserdetails/updateoshrhcuserdetails.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { UpdatedashboarddetailsComponent } from './updatedashboarddetails/update
     OshhceditdashboardComponent,
     SuccessaddoshrchcmemberComponent,
     UpdateadmindashboardComponent,
-    UpdatedashboarddetailsComponent
+    UpdatedashboarddetailsComponent,
+    UpdateoshrhcuserdetailsComponent
   ],
   imports: [
     BrowserModule,
