@@ -1,0 +1,142 @@
+<app-header></app-header>
+<div class="container">
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Please Wait...</p>
+</ngx-spinner>
+  <div class=".col-md-6">
+   <div class="row justify-content-center">
+       <div class="loginpanel">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <h2 class="loginpanel">Add Employee Data</h2>
+          <hr class="formhr">
+          <div *ngIf="show" class="alert alert-danger">
+            Oops!Same username already exits,Please choose another username!
+          </div>
+          <div *ngIf="successshow" class="alert alert-success">
+            Success!New admin user has created,check the dashboard.
+          </div>
+          <div class="form-group">
+            <label for="fullname"> Full Name:</label>
+            <input type="text" class="form-control" required id="fullname" name="fullname" [(ngModel)]="fullname" #fullnameCtrl="ngModel" >
+            <div *ngIf="!fullnameCtrl.valid && fullnameCtrl.touched">
+              <div *ngIf="fullnameCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="employeeid">Employee ID:</label>
+            <input type="text" class="form-control" required id="employeeid" name="employeeid" [(ngModel)]="employeeid" #employeeidCtrl="ngModel" >
+            <div *ngIf="!employeeidCtrl.valid && employeeidCtrl.touched">
+              <div *ngIf="employeeidCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="designation">Designation:</label>
+            <input type="text" class="form-control" required id="designation" name="designation" [(ngModel)]="designation" #designationCtrl="ngModel" >
+            <div *ngIf="!designationCtrl.valid && designationCtrl.touched">
+              <div *ngIf="designationCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" required id="address" name="address" [(ngModel)]="address" #addressCtrl="ngModel" >
+            <div *ngIf="!addressCtrl.valid && addressCtrl.touched">
+              <div *ngIf="addressCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="contactno">Contact No:</label>
+            <input type="text" class="form-control" required id="contactno" pattern=^[0-9]*$ name="contactno" [(ngModel)]="contactno" #contactnoCtrl="ngModel" >
+            <div *ngIf="!contactnoCtrl.valid && contactnoCtrl.touched">
+              <div *ngIf="contactnoCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+              <div *ngIf="contactnoCtrl.errors.pattern">
+                <p class="formerror">*Only Numeric value acceptable.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="joindate">Joining Date:</label>
+            <input type="text" class="form-control" required id="joindate" pattern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" name="joindate" [(ngModel)]="joindate" #joindateCtrl="ngModel" >
+            <div *ngIf="!joindateCtrl.valid && joindateCtrl.touched">
+              <div *ngIf="joindateCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+              <div *ngIf="joindateCtrl.errors.pattern">
+                <p class="formerror">*The date format is `DD/MM/YYYY`.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="resigndate">Resignation Date:</label>
+            <input type="text" class="form-control" required id="resigndate"  name="resigndate" [(ngModel)]="resigndate" attern="^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$" #resigndateCtrl="ngModel" >
+            <div *ngIf="!resigndateCtrl.valid && resigndateCtrl.touched">
+              <div *ngIf="resigndateCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+              <div *ngIf="joindateCtrl.errors.pattern">
+                <p class="formerror">*The date format is `DD/MM/YYYY`.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" required id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="email" #emailCtrl="ngModel" >
+            <div *ngIf="!emailCtrl.valid && emailCtrl.touched">
+              <div *ngIf="emailCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+              <div *ngIf="emailCtrl.errors.pattern">
+                <p class="formerror">*Not a Valid email address.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="email">Bank Account Details:</label>
+            <input type="text" class="form-control" required id="bankinfo" name="bankinfo"  [(ngModel)]="bankinfo" #bankinfoCtrl="ngModel" >
+            <div *ngIf="!bankinfoCtrl.valid && bankinfoCtrl.touched">
+              <div *ngIf="bankinfoCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div> 
+          </div>
+          <div class="form-group">
+            <label for="email">Remarks:</label>
+            <input type="text" class="form-control"  id="remarks" name="remarks"  [(ngModel)]="remarks" #remarksCtrl="ngModel" >
+          </div>
+          <div class="form-group">
+            <label for="checkboxinput">Check List </label>
+           <input type="checkbox" value="" [checked]="this.getcertificatechekedvalue"  id="checkboxinput"  [(ngModel)]="this.getcertificatechekedvalue" name="certificates" >Certificates
+           <input type="checkbox" value="" [checked]="this.getappointmentletter"  id="checkboxinput"  [(ngModel)]="this.getappointmentletter" name="appointmentletter" >Appointment Letter
+           <input type="checkbox" value="" [checked]="this.getcv"  id="checkboxinput"  [(ngModel)]="this.getcv" name="cv" >CV
+           <input type="checkbox" value="" [checked]="this.getnid"  id="checkboxinput"  [(ngModel)]="this.getnid" name="nid" >NID
+          </div>
+          <div class="form-group">
+            <label for="sigimage">Signature Image:</label>
+            <input type="file" class="form-control"  (change)="updateuploadsignature($event)" accept=".png,.jpg"  id="sigimage" name="sigimage" [(ngModel)]="sigimage" #sigimageCtrl="ngModel" >
+          </div>
+          <button 
+          type="submit" 
+          class="btn btn-lg btn-success btn-block" 
+          name="submtime" 
+          value="Sign In"
+          [disabled]="!f.valid"
+          >Update Member</button>
+       </form>
+      </div>
+      </div>
+      </div>
+    </div>

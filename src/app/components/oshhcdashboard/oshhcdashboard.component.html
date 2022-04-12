@@ -1,0 +1,116 @@
+<app-header></app-header>
+<div class="container">
+<h2> Admin Dashboard</h2>
+<hr>
+<div class="managetable">
+  <button 
+  type="submit" 
+  class="btn btn-lg btn-success downloadbtn lg-3" 
+  name="submtime" 
+  value="Sign In"
+  (click)="downloadexl()"
+  >Download All Data</button>
+
+    <table id="admindashboard"  datatable [dtTrigger]="dtTrigger" datatable [dtOptions]="dtOptions" class="table table-striped table-bordered" >
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>Join Date</th>
+              <th>Resign Date</th>
+              <th>Profile Picture</th>
+              <th>Signature</th>
+              <th>Details</th>
+              <th>Update</th>
+              <th>Delete</th>
+          </tr>
+      </thead>
+      <tbody >
+          <tr *ngFor="let item of users$" >
+               <td>{{item.fullname}}</td> 
+               <td>{{item.joindate}}</td>
+               <td>{{item.resigndate}}</td>
+               <td><img src="{{item.url}}" class="rounded float-left imgsync"></td>
+               <td><img src="{{item.sigurl}}" class="rounded float-left imgsync"></td>
+                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#certificateModal" (click)="details(item)">Details</button></td>
+               <td><button type="button" class="btn btn-success" (click)="edit(item)">Update</button></td>
+               <td><button type="button" class="btn btn-danger" (click)="deleteevent(item)">Delete</button></td>
+            </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Join Date</th>
+            <th>Resign Date</th>
+            <th>Profile Picture</th>
+            <th>Signature</th>
+            <th>Details</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+      </tfoot>
+      </table>
+</div>
+<div class="modal fade" id="certificateModal" tabindex="-1" role="dialog" aria-labelledby="certificateModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="certificateModalLongTitle">Employee Details.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+           <table  *ngFor="let item of list">
+               <tr><td>
+                   <img src="{{item.url}}" class="rounded float-left modalimg"></td></tr>
+                   <tr>
+                   <td>
+                    <div *ngIf="item.sigurl === 'No Image uploaded'">Signature : No Signature Image Uploaded</div>
+                    <div *ngIf="item.sigurl !== 'No Image uploaded'"><img src="{{item.sigurl}}" class="rounded float-left imgsync"></div>
+                  </td>
+                </tr>
+  
+              <hr id="modalline">      
+              <tr class="certificatetr"><td>Full Name:<p class="certificatedata">{{item.fullname}}</p></td></tr>  
+              <tr class="certificatetr"><td>Employee ID: <p class="certificatedata">{{item.employeeid}}</p></td></tr> 
+              <tr class="certificatetr"><td>Designation: <p class="certificatedata">{{item.designation}}</p></td></tr> 
+              <tr class="certificatetr"><td>Email ID: <p class="certificatedata">{{item.email}}</p></td></tr> 
+              <tr class="certificatetr"><td>Bank Info: <p class="certificatedata">{{item.bankinfo}}</p></td></tr> 
+              <tr class="certificatetr"><td>Mobile No: <p class="certificatedata">{{item.contactno}}</p></td></tr> 
+              <tr class="certificatetr"><td>Join Date: <p class="certificatedata">{{item.joindate}}</p></td></tr> 
+              <tr class="certificatetr"><td>Resign Date: <p class="certificatedata">{{item.resigndate}}</p></td></tr> 
+              <tr class="certificatetr"><td>Address: <p class="certificatedata">{{item.address}}</p></td></tr> 
+             <tr class="certificatetr"><td>Remarks: <p class="certificatedata">{{item.remarks}}</p></td></tr> 
+              <tr class="certificatetr"><td>Certificates:
+                <div *ngIf="item.certificates==='No Certificated Submitted'"><p class="certificatedata">No Certificated Submitted</p></div>
+                <div *ngIf="item.certificates===true"><p class="certificatedata">Certificate Submitted</p></div>
+              </td></tr> 
+              <tr class="certificatetr"><td>Appointment Letter: 
+                <div *ngIf="item.appointmentletter==='No Appointment letter issued'"><p class="certificatedata">No Appointment letter issued</p></div>
+                <div *ngIf="item.appointmentletter===true"><p class="certificatedata">Appointment Letter Issued</p></div>
+              </td></tr> 
+              <tr class="certificatetr"><td>CV: 
+                <div *ngIf="item.cv==='No CV Submitted'"><p class="certificatedata">No Certificated Submitted</p></div>
+                <div *ngIf="item.cv===true"><p class="certificatedata">CV Submitted</p></div>
+              </td></tr> 
+              <tr class="certificatetr"><td>NID: 
+                <div *ngIf="item.nid==='No NID submitted'"><p class="certificatedata">No NID submitted</p></div>
+                <div *ngIf="item.nid===true"><p class="certificatedata">NID Submitted</p></div>
+              </td></tr> 
+              <tr class="certificatetr"><td><button type="button" class="btn btn-warning btn-block" style="color: white;" data-dismiss="modal"  (click)="generatepdf(item)">Download PDF</button></td></tr> 
+           </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+
+
+</div>

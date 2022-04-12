@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="admin_area">
+        <div class="loginpanel">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <h2 class="loginpanel">Add New Admin User</h2>
+          <hr class="formhr">
+          <div *ngIf="show" class="alert alert-danger">
+            Oops!Same username already exits,Please choose another username!
+          </div>
+          <div *ngIf="successshow" class="alert alert-success">
+            Success!New admin user has created.
+          </div>
+          <div class="form-group">
+            <label for="fullname"> Full Name:</label>
+            <input type="text" class="form-control" required id="fullname" name="fullname" [(ngModel)]="fullname" #fullnameCtrl="ngModel" >
+            <div *ngIf="!fullnameCtrl.valid && fullnameCtrl.touched">
+              <div *ngIf="fullnameCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="uname">User Name:</label>
+            <input type="text" class="form-control"  id="uname" required name="uname" [(ngModel)]="uname"  #unameCtrl="ngModel" >
+            <div *ngIf="!unameCtrl.valid && unameCtrl.touched">
+              <div *ngIf="unameCtrl.errors.required">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">User Password:</label>
+            <input type="password" class="form-control" id="password" required name="upass" [(ngModel)]="upass" #upassCtrl="ngModel">
+            <div *ngIf="!upassCtrl.valid && upassCtrl.touched">
+              <div *ngIf="upassCtrl.errors.required" class="error">
+                <p class="formerror">*This field is important.</p>
+              </div>
+            </div>
+          </div>
+          <button 
+          type="submit" 
+          class="btn btn-lg btn-success btn-block" 
+          name="submtime" 
+          value="Sign In"
+          [disabled]="!f.valid">Add Admin</button>
+       </form>
+  
+  
+        <table id="addadminuser" datatable [dtTrigger]="dtTrigger" datatable [dtOptions]="dtOptions" class="table table-striped table-bordered" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Name</th>,,,
+                  <th>Uname</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody >
+              <tr *ngFor="let item of users$">
+                  <td>{{item.name}}</td>
+                  <td>{{item.uname}}</td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteadminuser(item)" 
+                    data-toggle="modal">Delete</button>
+                  </td>
+              </tr>
+          </tbody>
+           <tfoot>
+            <tr>
+              <th>Name</th>,,,
+              <th>Uname</th>
+              <th>Action</th>
+          </tr>
+          </tfoot>  
+      </table>
+      </div>
+      </div>
+      </div>
+    </div>
+     
+
+
+
