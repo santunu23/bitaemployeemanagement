@@ -1,0 +1,15 @@
+.row{
+    font-family: 'Roboto', sans-serif;
+}
+.userpicture{
+    height: 15rem;
+    width: 13rem;
+}
+.usersignpictue{
+    height: 13rem;
+    width: 15rem;
+    margin-top: 2rem;
+}
+p{
+    font-size: larger;
+}

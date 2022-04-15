@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-updateadmindashboard',
@@ -25,6 +26,7 @@ export class UpdateadmindashboardComponent implements OnInit {
   constructor(
     private service:FirebaseService,
     private router:Router,
+    private spinner:NgxSpinnerService,
     private updateadmindashboarddata:CookieService) { }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class UpdateadmindashboardComponent implements OnInit {
    let VT=0;
     this.service.getupdateuserdata().subscribe(data=>{
       this.users$ = data.map(e=>{
+        this.spinner.hide();
        let a=e.payload.doc.data()['designation']
       if(a==="Program Manager"){
         PM +=1
@@ -66,17 +69,7 @@ export class UpdateadmindashboardComponent implements OnInit {
          VT+=1
        }
        });
-      //  console.log("Total PM is "+PM);
-      //  console.log("Total DPM is "+DPM);
-      //  console.log("Total MNO is "+MNO);
-      //  console.log("Total TC is "+TC);
-      //  console.log("Total TE is "+TE);
-      //  console.log("Total FAO is "+FAO);
-      //  console.log("Total IMO is "+IMO);
-      //  console.log("Total CM is "+CM);
-      //  console.log("Total SM is "+SM);
-      //  console.log("Total SG is "+SG); 
-      //  console.log("Total VT is "+ VT); 
+       this.spinner.hide();
       this.lPM=PM;
       this.lDPM=DPM;
       this.lMNO=MNO;

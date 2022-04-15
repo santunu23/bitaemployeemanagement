@@ -57,6 +57,9 @@ searchmemberbynameoshrhc(res){
   return this.db.collection('createoshrhcemployeemember',ref=> ref.where('designation','==',res))
   .snapshotChanges()
 }
+searchoshrhcbymemberid(id){
+  return this.db.collection('createoshrhcemployeemember').doc(id).snapshotChanges();
+}
 updateoshrhcmemberdata(raf){
   return this.db.collection("createoshrhcemployeemember").doc(raf.id).update({
     "fullname":raf.fullname,

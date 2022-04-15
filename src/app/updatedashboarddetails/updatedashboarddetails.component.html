@@ -30,6 +30,14 @@
 </div> -->
 <div class="container">
     <div class="row justify-content-center"  >
+        <ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="medium"
+        color="#fff"
+        type="ball-scale-multiple"
+      >
+        <p style="font-size: 20px; color: white">Please Wait...</p>
+      </ngx-spinner>
         <div class="col col-md-3 col-sm-3" *ngFor="let item of users$">
             <div class="card">
                 <img class="card-img-top" src="{{item.url}}" alt="Card image cap">
@@ -38,7 +46,7 @@
                   <p class="card-text" style="text-align: center;">{{item.designation}}</p>
                   <p class="card-text">Bankinfo:{{item.bankinfo}}</p>
                   <p class="card-text">Mobile No:{{item.contactno}}</p>
-                  <button class="btn btn-primary" (click)="showdetails()" style="margin-left: 20%;">Show Details</button>
+                  <button class="btn btn-primary" (click)="showdetails(item)" style="margin-left: 20%;">Show Details</button>
                 </div>
               </div>
         </div>

@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { FirebaseService } from '../services/firebase.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-updatedashboarddetails',
@@ -30,10 +31,13 @@ export class UpdatedashboarddetailsComponent implements OnInit {
   constructor(
     private employeecokkie:CookieService,
     private service: FirebaseService,
-    private router:Router
+    private router:Router,
+    private cookieservice:CookieService,
+    private spinner:NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    this.spinner.show();
     if(!this.employeecokkie.check("employeedesignationdashboard")){
       this.router.navigateByUrl("updatedashboardforadmin");
     }else{
@@ -61,13 +65,18 @@ export class UpdatedashboarddetailsComponent implements OnInit {
             cv:e.payload.doc.data()['cv'],
             nid:e.payload.doc.data()['nid']
           }
+          this.spinner.hide()
        });
       });
     }
 
      
   }
-  showdetails(){
-    
+  showdetails(data){
+    if(this.cookieservice.check("userdetails")){
+      this.cookieservice.delete("userdetails");
+    }
+    this.cookieservice.set("userdetails",JSON.stringify(data));
+    this.router.navigateByUrl("detailsoftheoshrhcdetails");
   }
 }

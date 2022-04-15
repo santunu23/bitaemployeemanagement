@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) { }
   ngOnInit() {
     if(this.cookieservice.get('username')) {
-      this.router.navigateByUrl('dashboard');
+      this.router.navigateByUrl('updatedashboardforadmin');
     }else{
       this.cookieservice.delete('username');
    }
