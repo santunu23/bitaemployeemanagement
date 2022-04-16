@@ -32,6 +32,7 @@ import { SuccessaddoshrchcmemberComponent } from './components/successaddoshrchc
 import { UpdateadmindashboardComponent } from './updateadmindashboard/updateadmindashboard.component';
 import { UpdatedashboarddetailsComponent } from './updatedashboarddetails/updatedashboarddetails.component';
 import { UpdateoshrhcuserdetailsComponent } from './updateoshrhcuserdetails/updateoshrhcuserdetails.component';
+import { ExportdataComponent } from './exportdata/exportdata.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { UpdateoshrhcuserdetailsComponent } from './updateoshrhcuserdetails/upda
     SuccessaddoshrchcmemberComponent,
     UpdateadmindashboardComponent,
     UpdatedashboarddetailsComponent,
-    UpdateoshrhcuserdetailsComponent
+    UpdateoshrhcuserdetailsComponent,
+    ExportdataComponent
   ],
   imports: [
     BrowserModule,

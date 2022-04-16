@@ -17,6 +17,7 @@ import { DeleteoshrhcdashboardComponent } from './components/deleteoshrhcdashboa
 import { OshhcdashboardComponent } from './components/oshhcdashboard/oshhcdashboard.component';
 import { AddoshrchcmemberformComponent } from './components/addoshrchcmemberform/addoshrchcmemberform.component';
   import { from } from 'rxjs';
+import { ExportdataComponent } from './exportdata/exportdata.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'adminlogin', pathMatch: 'full' },
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path:'successaddmemberoshrhc',component:SuccessaddoshrchcmemberComponent},
   {path:'updatedashboardforadmin',component:UpdateadmindashboardComponent},
   {path:'updatedashboarddetails',component:UpdatedashboarddetailsComponent},
-  {path:'detailsoftheoshrhcdetails',component:UpdateoshrhcuserdetailsComponent}
-
+  {path:'detailsoftheoshrhcdetails',component:UpdateoshrhcuserdetailsComponent},
+  {path:'exportexcel',component:ExportdataComponent}
 ];
 
 @NgModule({

@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { environment } from './../../../environments/environment.prod';
 import { FirebaseService } from './../../services/firebase.service';
 import { empty } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     public cookieservice:CookieService,
     private router: Router,
-    private firebaseservice:FirebaseService
+    private firebaseservice:FirebaseService,
+    private spineerservice:NgxSpinnerService
   ) { }
   ngOnInit() {
     if(this.cookieservice.get('username')) {
@@ -32,14 +34,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form:NgForm){
+    this.spineerservice.show();
     let res={
       uname:form.value.uname,
       pword:form.value.upass,
     }
     this.firebaseservice.serachadminuser(res).subscribe(result => {
+      this.spineerservice.hide();
         if(result.length!==0){
-          this.router.navigateByUrl('oshrhcdashboard');
+          this.router.navigateByUrl('updatedashboardforadmin');
           this.cookieservice.set('username', form.value.uname);
+          this.cookieservice.set('projectname','OSHRHC');
         }else{
           this.show=true;
           form.reset();

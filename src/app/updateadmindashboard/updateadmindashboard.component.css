@@ -1,3 +1,26 @@
+.container{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(246, 255, 206);
+}
 .table{
     text-align: center;
 }
+.navbar{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+@media (min-width: 992px) and (max-width: 1024px) { 
+
+}
+@media (min-width: 768px) and (max-width: 900px) { 
+   
+}
+
+@media (min-width: 576px) and (max-width:700px) {  
+    .navbar-brand{
+        font-size: 10%;
+    }
+
+}
+

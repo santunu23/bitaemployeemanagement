@@ -28,6 +28,8 @@ export class UpdatedashboarddetailsComponent implements OnInit {
   employeeid;
   employeeimg;
   returnsigurl;
+  headerdesignation;
+  checkdesignation;
   constructor(
     private employeecokkie:CookieService,
     private service: FirebaseService,
@@ -37,12 +39,14 @@ export class UpdatedashboarddetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.spinner.show();
-    if(!this.employeecokkie.check("employeedesignationdashboard")){
+    this.headerdesignation=this.cookieservice.get("employeedesignationdashboard")
+      if(!this.employeecokkie.check("employeedesignationdashboard")){
       this.router.navigateByUrl("updatedashboardforadmin");
     }else{
+      this.spinner.show();
       let getdata=this.employeecokkie.get("employeedesignationdashboard");
       this.service.searchmemberbynameoshrhc(getdata).subscribe(data=>{ 
+        this.spinner.hide();
         this.users$ = data.map(e => {
           return {
             id:e.payload.doc['id'],
@@ -65,13 +69,11 @@ export class UpdatedashboarddetailsComponent implements OnInit {
             cv:e.payload.doc.data()['cv'],
             nid:e.payload.doc.data()['nid']
           }
-          this.spinner.hide()
+         
        });
       });
     }
-
-     
-  }
+ }
   showdetails(data){
     if(this.cookieservice.check("userdetails")){
       this.cookieservice.delete("userdetails");

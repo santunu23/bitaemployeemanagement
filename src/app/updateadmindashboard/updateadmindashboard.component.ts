@@ -30,6 +30,7 @@ export class UpdateadmindashboardComponent implements OnInit {
     private updateadmindashboarddata:CookieService) { }
 
   ngOnInit(): void {
+  this.spinner.show();
    let PM=0;
    let DPM=0;
    let MNO=0;
@@ -53,9 +54,9 @@ export class UpdateadmindashboardComponent implements OnInit {
          MNO+=1
        }else if(a==="Training Coordinator"){
          TC+=1
-       }else if(a==="Technical Expert"){
+       }else if(a==="Technical Expert(ICT)"){
          TE+=1 
-       }else if(a==="Information Management Officer"){
+       }else if(a==="Information management officer"){
         IMO+=1
        } else if(a==="Finance & Admin Officer"){
          FAO+=1
@@ -87,17 +88,16 @@ export class UpdateadmindashboardComponent implements OnInit {
      
   } 
   checkdetails(dname){
-    if(this.updateadmindashboarddata.check("employeedesignationdashboard")){
-      this.updateadmindashboarddata.delete("employeedesignationdashboard");
+        if(this.updateadmindashboarddata.check("employeedesignationdashboard")){
+           this.updateadmindashboarddata.delete("employeedesignationdashboard");
+     
       this.updateadmindashboarddata.set("employeedesignationdashboard",dname); 
+     
       this.router.navigateByUrl("updatedashboarddetails");
     }else{
-      this.updateadmindashboarddata.set("employeedesignationdashboard",dname);
+      this.updateadmindashboarddata.set("employeedesignationdashboard",dname); 
+     
       this.router.navigateByUrl("updatedashboarddetails");
     }
   }
-  // checkdetails(dname){
-  //   this.router.navigateByUrl("updatedashboardforadmin",{state:dname})
-    
-  // }
 }

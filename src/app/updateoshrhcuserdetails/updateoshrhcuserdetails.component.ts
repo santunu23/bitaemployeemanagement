@@ -77,7 +77,7 @@ export class UpdateoshrhcuserdetailsComponent implements OnInit {
   }
   backtodashboard(){
     this.cookieservice.delete("userdetails");
-    this.router.navigateByUrl("updatedashboardforadmin");
+    this.router.navigateByUrl("updatedashboarddetails");
   }
 
 }
