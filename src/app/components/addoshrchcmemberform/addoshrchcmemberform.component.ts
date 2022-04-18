@@ -132,15 +132,15 @@ export class AddoshrchcmemberformComponent implements OnInit {
           nid:this.nid,
           bankinfo:form.value.bankinfo,
          }
-         this.firebaseService.createoshrhcemployeemember(res).then(kam=>{
-          if(kam.get.length!==0){
-            this.spinner.hide();
-             form.reset();
-             this.router.navigateByUrl("successaddmemberoshrhc");
+      //    this.firebaseService.createoshrhcemployeemember(res).then(kam=>{
+      //     if(kam.get.length!==0){
+      //       this.spinner.hide();
+      //        form.reset();
+      //        this.router.navigateByUrl("successaddmemberoshrhc");
            
-          }
-       })
-      
+      //     }
+      //  })
+         console.log(res);
     }
 
 }

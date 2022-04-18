@@ -33,6 +33,9 @@ export class FirebaseService {
   getalladminuserdata(){
     return this.db.collection('Adminuser').snapshotChanges();
   }
+  getallcollectiondata(){
+    return this.db.collection('createoshrhcemployeemember').snapshotChanges();
+  }
   getselecteduserdata(item){
     return this.db.collection('createemployeemember',ref=> ref.where('randomId','==',item))
     .snapshotChanges()

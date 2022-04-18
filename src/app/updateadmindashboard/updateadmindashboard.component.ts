@@ -19,6 +19,8 @@ export class UpdateadmindashboardComponent implements OnInit {
   lFAO; 
   lIMO;
   lCM;
+  ICTR;
+  IAE;
   lSM; 
   lSG;
   lVT;
@@ -39,6 +41,8 @@ export class UpdateadmindashboardComponent implements OnInit {
    let FAO=0; 
    let IMO=0;
    let CM=0;
+   let CTR=0;
+   let  AE=0;
    let SM=0;
    let SG=0;
    let VT=0;
@@ -62,9 +66,13 @@ export class UpdateadmindashboardComponent implements OnInit {
          FAO+=1
        }else if(a==="Center Manager"){
         CM+=1
+      }else if(a==="Computer Trainer"){
+        CTR+=1
+      }else if(a==="Art Educator"){
+        AE+=1
       }else if(a==="Social Mobilizer"){
          SM+=1
-       }else if(a==="Security Guard"){
+       }else if(a==="Security Staff"){
          SG+=1
        }else if(a==="Volunteer"){
          VT+=1
@@ -79,13 +87,12 @@ export class UpdateadmindashboardComponent implements OnInit {
       this.lFAO=FAO; 
       this.lIMO=IMO;
       this.lCM=CM;
+      this.ICTR=CTR;
+      this.IAE=AE;
       this.lSM=SM; 
       this.lSG=SG;
       this.lVT=VT;
-       
-    })
-    
-     
+   })
   } 
   checkdetails(dname){
         if(this.updateadmindashboarddata.check("employeedesignationdashboard")){

@@ -48,6 +48,7 @@ export class UpdatedashboarddetailsComponent implements OnInit {
       this.service.searchmemberbynameoshrhc(getdata).subscribe(data=>{ 
         this.spinner.hide();
         this.users$ = data.map(e => {
+          console.log(e.payload.doc.data()['url']);
           return {
             id:e.payload.doc['id'],
             fullname: e.payload.doc.data()['fullname'],

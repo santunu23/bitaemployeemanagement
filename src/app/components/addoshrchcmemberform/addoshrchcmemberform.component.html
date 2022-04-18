@@ -40,8 +40,15 @@
           </div>
           <div class="form-group">
             <label for="designation">Designation:</label>
-            <input type="text" class="form-control" required id="designation" name="designation" [(ngModel)]="designation" #designationCtrl="ngModel" >
-            <div *ngIf="!designationCtrl.valid && designationCtrl.touched">
+            <select class="form-control" required id="designation" name="designation" [(ngModel)]="designation" #designationCtrl="ngModel">
+              <option value="Center Manager">Center Manager</option>
+              <option value="Computer Trainer">Computer Trainer</option>
+              <option value="Art Educator">Art Educator</option>
+              <option value="Social Mobilizer">Social Mobilizer</option>
+              <option value="Security staff">Security staff</option>
+              <option value="Volunteer">Volunteer</option>
+            </select>
+              <div *ngIf="!designationCtrl.valid && designationCtrl.touched">
               <div *ngIf="designationCtrl.errors.required">
                 <p class="formerror">*This field is important.</p>
               </div>
