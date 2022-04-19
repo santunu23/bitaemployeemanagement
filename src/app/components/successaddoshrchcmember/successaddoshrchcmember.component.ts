@@ -15,7 +15,7 @@ export class SuccessaddoshrchcmemberComponent implements OnInit {
   ngOnInit(): void {
   }
   gobacktohome(){
-    this.router.navigateByUrl("oshrhcdashboard");
+    this.router.navigateByUrl("updatedashboardforadmin");
   }
   gobacktoaddmember(){
     this.router.navigateByUrl("addoshrhcuser");
