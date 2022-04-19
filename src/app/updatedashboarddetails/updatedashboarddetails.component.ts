@@ -48,7 +48,6 @@ export class UpdatedashboarddetailsComponent implements OnInit {
       this.service.searchmemberbynameoshrhc(getdata).subscribe(data=>{ 
         this.spinner.hide();
         this.users$ = data.map(e => {
-          console.log(e.payload.doc.data()['url']);
           return {
             id:e.payload.doc['id'],
             fullname: e.payload.doc.data()['fullname'],
@@ -70,7 +69,6 @@ export class UpdatedashboarddetailsComponent implements OnInit {
             cv:e.payload.doc.data()['cv'],
             nid:e.payload.doc.data()['nid']
           }
-         
        });
       });
     }
@@ -81,5 +79,12 @@ export class UpdatedashboarddetailsComponent implements OnInit {
     }
     this.cookieservice.set("userdetails",JSON.stringify(data));
     this.router.navigateByUrl("detailsoftheoshrhcdetails");
+  }
+  updatedetails(data){
+    if(this.cookieservice.check("edituserdetails")){
+      this.cookieservice.delete("edituserdetails");
+    }
+    this.cookieservice.set("edituserdetails",JSON.stringify(data));
+    this.router.navigateByUrl("editoshrhcuser");
   }
 }

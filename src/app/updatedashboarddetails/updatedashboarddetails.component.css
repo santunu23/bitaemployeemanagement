@@ -4,12 +4,18 @@
 }
 .card{
     margin:0.5rem;
+    border-color: rgba(5, 204, 128, 0.849);
 }
 .card>img{
     height:14rem; 
     width:100%;   
 }
-
+.card-text{
+    text-align: center;
+}
+.fa-solid{
+    padding:5px;
+}
 h5{
     text-align: center;
     font-weight: 300;

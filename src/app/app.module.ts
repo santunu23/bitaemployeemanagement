@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 import {HttpClientModule} from '@angular/common/http';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -33,7 +33,21 @@ import { UpdateadmindashboardComponent } from './updateadmindashboard/updateadmi
 import { UpdatedashboarddetailsComponent } from './updatedashboarddetails/updatedashboarddetails.component';
 import { UpdateoshrhcuserdetailsComponent } from './updateoshrhcuserdetails/updateoshrhcuserdetails.component';
 import { ExportdataComponent } from './exportdata/exportdata.component';
-
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
+import { faSquare, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import {
+  faSquare as farSquare,
+  faCheckSquare as farCheckSquare,
+} from '@fortawesome/free-regular-svg-icons';
+import {
+  faStackOverflow,
+  faGithub,
+  faMedium,
+} from '@fortawesome/free-brands-svg-icons';
+import { EditupdatedashboarddetailsComponent } from './editupdatedashboarddetails/editupdatedashboarddetails.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +69,8 @@ import { ExportdataComponent } from './exportdata/exportdata.component';
     UpdateadmindashboardComponent,
     UpdatedashboarddetailsComponent,
     UpdateoshrhcuserdetailsComponent,
-    ExportdataComponent
+    ExportdataComponent,
+    EditupdatedashboarddetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,9 +81,23 @@ import { ExportdataComponent } from './exportdata/exportdata.component';
     AngularFirestoreModule,
     DataTablesModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FontAwesomeModule,
+    CommonModule
   ],
   providers: [CookieService,{provide: LocationStrategy, useClass: HashLocationStrategy},AngularFireStorage],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(library: FaIconLibrary) {
+    library.addIcons(
+      faSquare,
+      faCheckSquare,
+      farSquare,
+      farCheckSquare,
+      faStackOverflow,
+      faGithub,
+      faMedium
+    );
+  }
+}

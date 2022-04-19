@@ -27,6 +27,40 @@ export class FirebaseService {
       upass:value.pword
   });
   }
+  fullname
+
+email
+designation
+appointmentletter
+certificates
+cv
+bankinfo 
+contactno
+joindate
+resigndate 
+created_at 
+emoloyeeid 
+randomId
+remarks
+url
+signurl
+
+  updateoshrhcemployeemember(res){
+   return this.db.collection('createoshrhcemployeemember').doc(res.id).update({
+     "fullname":res.fullname,
+     "address":res.address,
+     "email":res.email,
+     "designation":res.designation,
+     "appointmentletter":res.appointmentletter,
+     "certificates":res.certificates,
+     "cv":res.cv,
+     "bankinfo":res.bankinfo,
+     "contactno":res.contactno,
+     "joindate":res.joindate,
+     "resigndate":res.resigndate,
+     "emoloyeeid":res.employeeid
+    });
+  }
   deleteadminuser(item){
     this.db.doc('Adminuser/'+item).delete();
   }

@@ -24,79 +24,85 @@
                     <th scope="row">1</th>
                     <td>PM</td>
                     <td>{{this.lPM}}</td>
-                    <td><button class="btn btn-success"  (click)="checkdetails('Program Manager')">Detail</button></td>
+                    <td><button class="btn btn-success"  (click)="checkdetails('Program Manager')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                  <tr>
                     <th scope="row">2</th>
                     <td>DPM</td>
-                    <td>{{this.lDPM}}</td> 
-                    <td><button class="btn btn-success"  (click)="checkdetails('Deputy Program Manager')">Detail</button> </td>
+                    <td>{{this.lDPM}}</td>
+                    <td><button class="btn btn-success"  (click)="checkdetails('Deputy Program Manager')"><i class="fa-solid fa-box-archive"></i>Detail</button> </td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
-                    <td>MNO</td>
+                    <td>MDO</td>
                     <td>{{this.lMNO}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Monitoring & Documentation Officer')">Detail</button></td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Monitoring & Documentation Officer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
                     <td>TC</td>
                     <td>{{this.lTC}}</td>
-                    <td><button class="btn btn-success" (click)="checkdetails('Training Coordinator')">Detail</button></td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Training Coordinator')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">5</th>
                     <td >TE</td> 
                     <td>{{this.lTE}}</td>
-                    <td><button class="btn btn-success" (click)="checkdetails('Technical Expert(ICT)')">Detail</button></td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Technical Expert(ICT)')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">6</th> 
                     <td>FAO</td> 
                     <td>{{this.lFAO}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Finance & Admin Officer')">Detail</button></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">6</th> 
-                    <td>IMO</td>  
-                    <td>{{this.lIMO}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Information Management Officer')">Detail</button></td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Finance & Admin Officer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">7</th> 
-                    <td>CM</td> 
-                    <td>{{this.lCM}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Center Manager')">Detail</button></td>
+                    <td>PST</td> 
+                    <td>{{this.IPST}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Psychosocial Trainer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">8</th> 
-                    <td>CTR</td> 
-                    <td>{{this.ICTR}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Computer Trainer')">Detail</button></td>
+                    <td>IMO</td>  
+                    <td>{{this.lIMO}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Information Management Officer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">9</th> 
-                    <td>AE</td> 
-                    <td>{{this.IAE}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Art Educator')">Detail</button></td>
+                    <td>CM</td> 
+                    <td>{{this.lCM}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Center Manager')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">10</th> 
-                    <td>SM</td> 
-                    <td> {{this.lSM}}</td> 
-                    <td><button class="btn btn-success" (click)="checkdetails('Social Mobilizer')">Detail</button></td>
+                    <td>CTR</td> 
+                    <td>{{this.ICTR}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Computer Trainer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">11</th> 
-                    <td>SG</td> 
-                    <td>{{this.lSG}}</td>
-                    <td><button class="btn btn-success" (click)="checkdetails('Security Staff')">Detail</button></td>
+                    <td>AE</td> 
+                    <td>{{this.IAE}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Art Educator')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                   <tr>
                     <th scope="row">12</th> 
+                    <td>SM</td> 
+                    <td> {{this.lSM}}</td> 
+                    <td><button class="btn btn-success" (click)="checkdetails('Social Mobilizer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th> 
+                    <td>SG</td> 
+                    <td>{{this.lSG}}</td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Security Staff')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">14</th> 
                     <td>VT</td> 
                     <td>{{this.lVT}}</td>
-                    <td><button class="btn btn-success" (click)="checkdetails('Volunteer')">Detail</button></td>
+                    <td><button class="btn btn-success" (click)="checkdetails('Volunteer')"><i class="fa-solid fa-box-archive"></i>Detail</button></td>
                   </tr>
                 </tbody>
               </table>

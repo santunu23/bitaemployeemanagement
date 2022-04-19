@@ -1,0 +1,14 @@
+.container{
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(246, 255, 206);
+}
+.textloginpanel{
+    text-align: center;
+    font-weight: 300;
+}
+.formerror{
+    color:red;
+}
+.fa-solid{
+    padding:5px;
+}

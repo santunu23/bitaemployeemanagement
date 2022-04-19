@@ -12,7 +12,7 @@
     <div class="admin_area">
         <div class="loginpanel">
         <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-          <h2 class="loginpanel">Update Employee Data</h2>
+          <h2 class="textloginpanel">Update Employee Data</h2>
           <hr class="formhr">
           <div *ngIf="show" class="alert alert-danger">
             Oops!Same username already exits,Please choose another username!
@@ -135,26 +135,6 @@
             <input type="text" class="form-control"  id="remarks" name="remarks"  [(ngModel)]="remarks" #remarksCtrl="ngModel" >
           </div>
           <div class="form-group">
-            <label for="emplimage">Personal Image:</label>
-            <input type="file" class="form-control"  (change)="upload($event)" required accept=".png,.jpg"  id="emplimage" name="emplimage" [(ngModel)]="emplimage" #emplimageCtrl="ngModel" >
-            <div *ngIf="!emplimageCtrl.valid && emplimageCtrl.touched">
-              <div *ngIf="emplimageCtrl.errors.required">
-                <p class="formerror">*This field is important.</p>
-              </div>
-            </div> 
-          </div>
-          <div class="form-group">
-            <label for="sigimage">Signature Image:</label>
-            <input type="file" class="form-control"  (change)="uploadsignature($event)" required accept=".png,.jpg"  id="sigimage" name="sigimage" [(ngModel)]="sigimage" #sigimageCtrl="ngModel" >
-            <div *ngIf="!sigimageCtrl.valid && sigimageCtrl.touched">
-              <div *ngIf="sigimageCtrl.errors.required">
-                <p class="formerror">*This field is important.</p>
-              </div>
-            </div>
-         
-         
-          </div>
-          <div class="form-group">
             <label for="checkboxinput">Check List </label>
             <br>
            <input type="checkbox" value="certificates"  id="checkboxinput"  [(ngModel)]="certificates" name="certificates" >Certificates
@@ -167,8 +147,7 @@
           class="btn btn-lg btn-success btn-block" 
           name="submtime" 
           value="Sign In"
-          [disabled]="!f.valid"
-          >Add Member</button>
+         ><i class="fa-solid fa-pen-clip"></i>Update User data</button> 
        </form>
       </div>
       </div>
